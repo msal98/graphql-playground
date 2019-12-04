@@ -90,7 +90,7 @@ Response
 }
 ```
 
-#### Retrieve a Single Vehicle In It's Entirety
+#### Retrieve a Single Vehicle
 Request
 ```graphql
 query {
@@ -116,5 +116,36 @@ Response
             "launchDate": "2016-08-16"
         }
     }
+}
+```
+
+###### Request an Invalid ID
+Request
+```graphql
+query {
+  vehicle(id: 9999) 
+  {
+    id, 
+    type, 
+    modelCode,
+    brandName,
+    launchDate
+  }
+}
+```
+Response
+>This is a WIP. No exception details are coming back to the caller which is not ideal.
+```json
+{
+    "data": {
+        "vehicle": null
+    },
+    "errors": [
+        {
+            "message": "Internal Server Error(s) while executing query",
+            "path": null,
+            "extensions": null
+        }
+    ]
 }
 ```

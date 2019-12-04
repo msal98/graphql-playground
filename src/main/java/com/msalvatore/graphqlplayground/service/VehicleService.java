@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,12 +29,14 @@ public class VehicleService {
     }
 
     @Transactional(readOnly = true)
-    public List<Vehicle> getAllVehicles(final int count) {
+    public List<Vehicle> getAllVehicles(int count) {
         return vehicleRepository.findAll().stream().limit(count).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public Optional<Vehicle> getVehicle(final int id) {
-        return vehicleRepository.findById(id);
+    public Vehicle getVehicle(int id) {
+        return vehicleRepository.findById(id)
+                // TODO: Improve error handling
+                .orElseThrow(() -> new RuntimeException("Vehicle with id " + id + " not found"));
     }
 }
