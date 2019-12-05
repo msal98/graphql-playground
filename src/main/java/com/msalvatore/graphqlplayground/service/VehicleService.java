@@ -19,12 +19,12 @@ public class VehicleService {
     }
 
     @Transactional
-    public Vehicle createVehicle(String type, String modelCode, String brandName, String launchDate) {
+    public Vehicle createVehicle(String type, String modelCode, String brandName, LocalDate launchDate) {
         final Vehicle vehicle = new Vehicle();
         vehicle.setType(type);
         vehicle.setModelCode(modelCode);
         vehicle.setBrandName(brandName);
-        vehicle.setLaunchDate(LocalDate.parse(launchDate));
+        vehicle.setLaunchDate(launchDate);
         return vehicleRepository.save(vehicle);
     }
 
