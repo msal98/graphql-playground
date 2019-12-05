@@ -10,8 +10,6 @@ import java.time.LocalDate;
 @Entity(name = "VEHICLES")
 public class Vehicle {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
