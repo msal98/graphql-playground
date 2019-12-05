@@ -3,7 +3,7 @@ type Vehicle {
     type: String,
     modelCode: String,
     brandName: String,
-    launchDate: String
+    launchDate: LocalDate
 }
 type Query {
     vehicles(count: Int):[Vehicle]
