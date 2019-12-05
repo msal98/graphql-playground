@@ -1,11 +1,14 @@
 package com.msalvatore.graphqlplayground.entity;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
-@Entity
-public class Vehicle implements Serializable {
+@Entity(name = "VEHICLES")
+public class Vehicle {
 
     private static final long serialVersionUID = 1L;
 
@@ -14,16 +17,16 @@ public class Vehicle implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "type", nullable = false)
+    @Column(name = "TYPE", nullable = false)
     private String type;
 
-    @Column(name = "model_code", nullable = false)
+    @Column(name = "MODEL_CODE", nullable = false)
     private String modelCode;
 
-    @Column(name = "brand_name")
+    @Column(name = "BRAND_NAME")
     private String brandName;
 
-    @Column(name = "launch_date")
+    @Column(name = "LAUNCH_DATE")
     private LocalDate launchDate;
 
     private transient  String formattedDate;
