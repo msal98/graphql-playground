@@ -171,4 +171,7 @@ Response
 * Add vehicle update support
 * Add vehicle delete support
 * Look into supporting LocalDate/LocalDateTime during deserialization rather than parsing explicitly in service
-* Create sample integration test - can we use libs that we're already pulling in to build client request?
+* Create sample integration test
+  * can we use libs that we're already pulling in to build client request?
+  * see what graphql-spring-boot-starter-test offers
+
