@@ -32,7 +32,7 @@ type Mutation {
 
 ### Example GraphiQL Requests
 
-#### Create a new vehicle record
+#### Create a New Vehicle
 Request
 ```graphql
 mutation {
@@ -119,7 +119,23 @@ Response
 }
 ```
 
-###### Request an Invalid ID
+#### TODO: Update a Vehicle
+Request
+```graphql
+```
+Response
+```json
+```
+
+#### TODO: Delete a Vehicle
+Request
+```graphql
+```
+Response
+```json
+```
+
+#### Request an Invalid ID
 Request
 ```graphql
 query {
@@ -149,3 +165,9 @@ Response
     ]
 }
 ```
+
+## What's Next?
+* Improve error handling - GraphQL returns 200 status code with generic error message when any exceptions occur
+* Add vehicle update support
+* Add vehicle delete support
+* Look into supporting LocalDate/LocalDateTime during deserialization rather than parsing explicitly in service
