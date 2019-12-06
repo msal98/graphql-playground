@@ -20,6 +20,10 @@ public class VehicleMutation implements GraphQLMutationResolver {
         return vehicleService.createVehicle(type, modelCode, brandName, launchDate);
     }
 
+    public Vehicle updateVehicle(int id, String type, String modelCode, String brandName, LocalDate launchDate) {
+        return vehicleService.updateVehicle(id, type, modelCode, brandName, launchDate);
+    }
+
     public boolean deleteVehicle(int id) {
         vehicleService.deleteVehicle(id);
         // can't have void return type in a mutation, so just return true

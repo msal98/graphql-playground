@@ -121,9 +121,24 @@ Response
 #### TODO: Update a Vehicle
 Request
 ```graphql
+mutation {
+  updateVehicle(id: 3, type: "cybertruck", modelCode: "T1", brandName: "Tesla", launchDate: "2019-11-21") 
+  {
+    id
+    type
+  }
+}
 ```
 Response
 ```json
+{
+    "data": {
+        "updateVehicle": {
+            "id": "3",
+            "type": "cybertruck"
+        }
+    }
+}
 ```
 
 #### Delete a Vehicle
@@ -180,7 +195,6 @@ Response
 
 ## What's Next?
 * Improve error handling - GraphQL returns 200 status code with generic error message when any exceptions occur
-* Add vehicle update support
 * Create sample integration test
   * can we use libs that we're already pulling in to build client request?
   * see what graphql-spring-boot-starter-test offers
