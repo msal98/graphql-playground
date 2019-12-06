@@ -127,12 +127,25 @@ Response
 ```json
 ```
 
-#### TODO: Delete a Vehicle
+#### Delete a Vehicle
+Most examples I've found include _selection sets_ when making requests. In my case, I don't necessarily need a response,
+especially since my JPA repository returns `void` on delete. While GraphQL does not support omitting a response entirely 
+in a mutation, returning a scalar type is supported. My solution was to return a `Boolean` type. With scalar return 
+types, you can omit the _selection set_ entirely which is demonstrated in the example below.
+
 Request
 ```graphql
+mutation {
+  deleteVehicle(id: 1)
+}
 ```
 Response
 ```json
+{
+    "data": {
+        "deleteVehicle": true
+    }
+}
 ```
 
 #### Request an Invalid ID
@@ -169,8 +182,6 @@ Response
 ## What's Next?
 * Improve error handling - GraphQL returns 200 status code with generic error message when any exceptions occur
 * Add vehicle update support
-* Add vehicle delete support
-* Look into supporting LocalDate/LocalDateTime during deserialization rather than parsing explicitly in service
 * Create sample integration test
   * can we use libs that we're already pulling in to build client request?
   * see what graphql-spring-boot-starter-test offers

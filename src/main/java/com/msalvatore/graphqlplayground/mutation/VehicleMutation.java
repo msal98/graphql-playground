@@ -17,7 +17,13 @@ public class VehicleMutation implements GraphQLMutationResolver {
     }
 
     public Vehicle createVehicle(String type, String modelCode, String brandName, LocalDate launchDate) {
-        // TODO: Can we accept a LocalDate instead of a String?
         return vehicleService.createVehicle(type, modelCode, brandName, launchDate);
     }
+
+    public boolean deleteVehicle(int id) {
+        vehicleService.deleteVehicle(id);
+        // can't have void return type in a mutation, so just return true
+        return true;
+    }
+
 }
