@@ -122,9 +122,24 @@ Response
 #### TODO: Update a Vehicle
 Request
 ```graphql
+mutation {
+  updateVehicle(id: 3, type: "cybertruck", modelCode: "T1", brandName: "Tesla", launchDate: "2019-11-21") 
+  {
+    id
+    type
+  }
+}
 ```
 Response
 ```json
+{
+    "data": {
+        "updateVehicle": {
+            "id": "3",
+            "type": "cybertruck"
+        }
+    }
+}
 ```
 
 #### Delete a Vehicle

@@ -20,12 +20,13 @@ public class VehicleService {
 
     @Transactional
     public Vehicle createVehicle(String type, String modelCode, String brandName, LocalDate launchDate) {
-        final Vehicle vehicle = new Vehicle();
-        vehicle.setType(type);
-        vehicle.setModelCode(modelCode);
-        vehicle.setBrandName(brandName);
-        vehicle.setLaunchDate(launchDate);
-        return vehicleRepository.save(vehicle);
+        return vehicleRepository.save(updateVehicle(new Vehicle(), type, modelCode, brandName, launchDate));
+    }
+
+    @Transactional
+    public Vehicle updateVehicle(int id, String type, String modelCode, String brandName, LocalDate launchDate) {
+        Vehicle vehicle = vehicleRepository.findById(id).orElseThrow(() -> new RuntimeException("Vehicle with id " + id + " not found"));
+        return vehicleRepository.save(updateVehicle(vehicle, type, modelCode, brandName, launchDate));
     }
 
     @Transactional(readOnly = true)
@@ -42,5 +43,14 @@ public class VehicleService {
 
     public void deleteVehicle(int id) {
         vehicleRepository.deleteById(id);
+    }
+
+    private static Vehicle updateVehicle(Vehicle vehicle, String type, String modelCode, String brandName, LocalDate launchDate) {
+        vehicle.setType(type);
+        vehicle.setModelCode(modelCode);
+        vehicle.setBrandName(brandName);
+        vehicle.setLaunchDate(launchDate);
+
+        return vehicle;
     }
 }
