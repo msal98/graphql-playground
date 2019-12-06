@@ -178,24 +178,20 @@ query {
 }
 ```
 Response
->This is a WIP. No exception details are coming back to the caller which is not ideal.
 ```json
 {
-    "data": {
-        "vehicle": null
-    },
     "errors": [
         {
-            "message": "Internal Server Error(s) while executing query",
-            "path": null,
-            "extensions": null
+            "message": "Vehicle with id 999 not found"
         }
-    ]
+    ],
+    "data": {
+        "updateVehicle": null
+    }
 }
 ```
 
 ## What's Next?
-* Improve error handling - GraphQL returns 200 status code with generic error message when any exceptions occur
 * Create sample integration test
   * can we use libs that we're already pulling in to build client request?
   * see what graphql-spring-boot-starter-test offers
