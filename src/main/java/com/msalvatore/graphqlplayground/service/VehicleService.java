@@ -39,4 +39,8 @@ public class VehicleService {
                 // TODO: Improve error handling
                 .orElseThrow(() -> new RuntimeException("Vehicle with id " + id + " not found"));
     }
+
+    public void deleteVehicle(int id) {
+        vehicleRepository.deleteById(id);
+    }
 }
