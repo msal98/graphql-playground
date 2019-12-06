@@ -1,6 +1,5 @@
 # graphql-playground
-A simple demo of a GraphQL-based vehicle service backed by an in-memory DB2 database. The majority of the code was taken 
-from [here](https://dzone.com/articles/a-beginners-guide-to-graphql-with-spring-boot)
+A simple demo of a GraphQL-based vehicle service backed by an in-memory DB2 database. Some of the initial code was inspired by [this post](https://dzone.com/articles/a-beginners-guide-to-graphql-with-spring-boot)
 
 ## Usage
 1. Clone this repository
