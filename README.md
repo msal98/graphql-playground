@@ -196,7 +196,6 @@ Response
 
 ## What's Next?
 * Improve error handling - GraphQL returns 200 status code with generic error message when any exceptions occur
-* Add vehicle update support
 * Create sample integration test
   * can we use libs that we're already pulling in to build client request?
   * see what graphql-spring-boot-starter-test offers
