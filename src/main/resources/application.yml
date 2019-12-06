@@ -6,4 +6,5 @@ graphql:
 #    corsEnabled: true
     exception-handlers-enabled: true
 #    contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
-
+    websocket:
+      enabled: false
